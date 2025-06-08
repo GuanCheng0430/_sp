@@ -1,12 +1,32 @@
-from bs4 import BeautifulSoup
+# parser.py - 範例片段
 
-def parse_articles(html):
-    soup = BeautifulSoup(html, "html.parser")
-    articles = []
+def parse_do_while(tokens):
+    """
+    解析 do while 迴圈語法：
+    do {
+        // statements
+    } while (condition);
+    """
+    expect_token(tokens, 'do')
+    expect_token(tokens, '{')
+    body = parse_statements(tokens)
+    expect_token(tokens, '}')
+    expect_token(tokens, 'while')
+    expect_token(tokens, '(')
+    condition = parse_expression(tokens)
+    expect_token(tokens, ')')
+    expect_token(tokens, ';')
 
-    for item in soup.select(".article"):
-        title = item.select_one("h2").text.strip()
-        link = item.select_one("a")["href"]
-        articles.append({"title": title, "link": link})
+    return DoWhileLoop(body, condition)
 
-    return articles
+
+class DoWhileLoop:
+    def __init__(self, body, condition):
+        self.body = body
+        self.condition = condition
+
+    def execute(self, context):
+        while True:
+            self.body.execute(context)
+            if not self.condition.evaluate(context):
+                break

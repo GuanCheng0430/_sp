@@ -1,14 +1,23 @@
-# Python Web Crawler System
+# C4 編譯器
 
-📌 **本專案屬於系統計畫課程期中作業**
+本專案為 C4 編譯器，新增支援 do while 迴圈語法。
 
-## 🧠 專案簡介
+## 新增功能
 
-本系統為一個使用 Python 建立的模組化網頁爬蟲，包含抓取 HTML、資料解析、儲存等功能，適用於新聞網站等靜態資料擷取任務。
+- 支援 `do while` 迴圈
+- 範例語法：
+```c
+do {
+    // statements
+} while (condition);
+```
 
-## 📁 模組說明
+## 使用說明
 
-- `fetcher.py`：發送請求，取得 HTML
-- `parser.py`：擷取網頁標題與連結
-- `saver.py`：儲存為 CSV
-- `main.py`：整合模組並執行
+1. 下載並執行程式碼
+2. 在程式中撰寫 `do while` 迴圈測試
+3. 編譯並執行
+
+---
+
+感謝使用，歡迎提出 Issue。
